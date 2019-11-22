@@ -1,4 +1,4 @@
-pipeline {
+node {
     agent any
     environment {
         HARBOR_CREDS = credentials('jenkins-harbor-creds')
