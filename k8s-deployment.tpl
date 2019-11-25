@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: {APP_NAME}
-        image: {IMAGE_URL}:{IMAGE_TAG}
+        image: {IMAGE_URL}
         ports:
         - containerPort: 30180
         env:
