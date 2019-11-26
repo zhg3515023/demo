@@ -17,13 +17,25 @@ spec:
       containers:
       - name: {APP_NAME}
         image: {IMAGE_URL}
-        type: NodePort 
         ports: 
-        - name: web
-          port: 8080
-          nodePort: 30180
+        - containerPort: 8080
+          protocol: TCP
+          name: web
         env:
           - name: SPRING_PROFILES_ACTIVE
             value: {SPRING_PROFILE}
       imagePullSecrets:
       - name: registry-secret
+apiVersion: v1
+kind: Service
+metadata:
+  name: {APP_NAME}
+  labels:
+    app: {APP_NAME}
+spec:
+  ports:
+  - name: web
+    port: 8080
+    nodePort: 30180
+    protocol: TCP
+  type: NodePort
