@@ -16,9 +16,13 @@ spec:
     spec:
       containers:
       - name: {APP_NAME}
-        image: {IMAGE_URL} 
-        ports:
-        - containerPort: 30180
+        image: {IMAGE_URL}
+        type: NodePort 
+        ports: 
+        - name: web
+          port: 8080
+          targetPort: 8080
+          nodePort: 30180
         env:
           - name: SPRING_PROFILES_ACTIVE
             value: {SPRING_PROFILE}
