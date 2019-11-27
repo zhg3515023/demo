@@ -36,6 +36,7 @@ spec:
   ports:
   - name: web
     port: 8080
+    targetPort: 8080
     nodePort: 30180
     protocol: TCP
   type: NodePort
