@@ -26,17 +26,3 @@ spec:
             value: {SPRING_PROFILE}
       imagePullSecrets:
       - name: registry-secret
-apiVersion: v1
-kind: Service
-metadata:
-  name: {APP_NAME}
-  labels:
-    app: {APP_NAME}
-spec:
-  ports:
-  - name: web
-    port: 8080
-    targetPort: 8080
-    nodePort: 30180
-    protocol: TCP
-  type: NodePort
